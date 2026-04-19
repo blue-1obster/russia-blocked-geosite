@@ -81,9 +81,9 @@ jobs:
 
       - name: Move and zip files and generate sha256 hash
         run: |
+          mkdir -p ./publish 
           install -Dp ./custom/publish/geosite.dat ./publish/geosite.dat
-          
-          (cd ./publish && sha256sum geosite.dat > geosite.dat.sha256sum)
+          cd ./publish && sha256sum geosite.dat > geosite.dat.sha256sum
 
       - name: Release and upload assets
         uses: svenstaro/upload-release-action@v2
